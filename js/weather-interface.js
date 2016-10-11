@@ -2,9 +2,8 @@ var apiKey = require('./../.env').apiKey;
 var Temperature = require('./../js/temperature.js').temperatureModule;
 
 $(document).ready(function(){
-  var temp = new Temperature();
-
-  $("form").submit(function(event){
+  var newTemperature = new Temperature();
+  $("#forecast").submit(function(event){
     event.preventDefault();
     $("#cityName").empty();
     $(".weatherOutput").empty();
@@ -14,9 +13,8 @@ $(document).ready(function(){
     $.get('http://api.openweathermap.org/data/2.5/forecast/daily?q=' + city + '&cnt=5&appid=' + apiKey, function(response) {
       console.log(response);
       for (var i = 0; i < response.list.length; i++) {
-        var newTemperature = new Temperature(response.list[i].temp.day);
-        var celsius = Math.round(newTemperature.celsius());
-        var fahrenheit = Math.round(newTemperature.fahrenheit());
+        var celsius = Math.round(newTemperature.celsius(response.list[i].temp.day));
+        var fahrenheit = Math.round(newTemperature.fahrenheit(response.list[i].temp.day));
         var date = new Date(parseInt(response.list[i].dt) * 1000);
         console.log(response.list[i].weather[0].description);
         var htmlString = "<div class='col-sm-2'><h3>" +

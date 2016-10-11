@@ -11,17 +11,23 @@
   <body>
     <h1>Weather</h1>
     <div class="container">
-      <form class="">
+      <form id="forecast">
         <label for="city">Enter name of City</label>
         <input id="city" type="text">
         <button id="btn" type="submit" name="button">Check Weather</button>
       </form>
       <h2 id="cityName"></h2>
       <div class="weatherOutput row">
-        <!-- <h3 id="cityName"></h3>
-        <h4 id="humidity"></h4>
-        <h4 id="fahrenheit"></h4>
-        <h4 id="celsius"></h4> -->
+      </div>
+      <h3>Compare weather in two cities!</h3>
+      <form id="compare">
+        <label for="city1">Enter name of City</label>
+        <input id="city1" type="text">
+        <label for="city2">Enter name of City</label>
+        <input id="city2" type="text">
+        <button id="btn" type="submit" name="button">Check Weather</button>
+      </form>
+      <div id="diffDisplay">
       </div>
     </div>
   </body>
